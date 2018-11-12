@@ -1,0 +1,11 @@
+---
+- name: Transfer and execute a script.
+  hosts: server
+  user: test_user
+  sudo: yes
+  tasks:
+     - name: Transfer the script
+       copy: src=nginx_docker.sh dest=/home/test_user mode=0777
+
+     - name: Execute the script
+       command: command sudo sh /home/test_user/test.sh
